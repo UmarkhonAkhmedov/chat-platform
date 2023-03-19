@@ -1,5 +1,3 @@
-import React from "react";
-import { Link } from "react-router-dom";
 import {
   Button,
   InputContainer,
@@ -8,13 +6,9 @@ import {
 } from "../../utils/styles";
 import styles from "./index.module.scss";
 
-export default function RegisterForm() {
-  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-  };
-
+export const RegisterForm = () => {
   return (
-    <form className={styles.form} onSubmit={onSubmit}>
+    <form className={styles.form}>
       <InputContainer>
         <InputLabel htmlFor="email">Email</InputLabel>
         <InputField type="email" id="email" />
@@ -22,11 +16,11 @@ export default function RegisterForm() {
       <section className={styles.nameFieldRow}>
         <InputContainer>
           <InputLabel htmlFor="firstName">First Name</InputLabel>
-          <InputField type="firstName" id="firstName" />
+          <InputField type="text" id="firstName" />
         </InputContainer>
         <InputContainer>
           <InputLabel htmlFor="lastName">Last Name</InputLabel>
-          <InputField type="lastName" id="lastName" />
+          <InputField type="text" id="lastName" />
         </InputContainer>
       </section>
       <InputContainer>
@@ -34,12 +28,6 @@ export default function RegisterForm() {
         <InputField type="password" id="password" />
       </InputContainer>
       <Button className={styles.button}>Create My Account</Button>
-      <div className={styles.existingUser}>
-        <span>Already have an account? </span>
-        <Link to="/login">
-          <span>Login</span>
-        </Link>
-      </div>
     </form>
   );
-}
+};
